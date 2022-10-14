@@ -99,6 +99,7 @@ shader_param/distortionStrength = 0.1
 [node name="Main_Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 2 )
 script = ExtResource( 1 )
 
 [node name="Background" type="Sprite" parent="."]
