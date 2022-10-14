@@ -7,7 +7,7 @@ func _ready():
 	var paddle = find_parent("Paddle")
 	if paddle != null:
 		paddle.call_deferred("set_scale", Vector2(2,2))
-		paddle.width = paddle.width_default * 2
+		paddle.width = paddle.width_default * 2 * 0.195
 
 func payload():
 	pass

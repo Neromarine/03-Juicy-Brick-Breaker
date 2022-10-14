@@ -20,6 +20,8 @@ func _ready():
 						var brick = Brick.instance()
 						brick.new_position = Vector2(margin.x + index.x*cols, margin.y + index.y*rows)
 						brick.position = Vector2(brick.new_position.x,-100)
+						$Tween.interpolate_property(brick, "position", position, brick.new_position, 0.5+ randf()*3, Tween.TRANS_BOUNCE, Tween.EASE_IN_OUT)
+						$Tween.start()
 						brick.score = layout[rows][cols]
 						Brick_Container.add_child(brick)
 		var Instructions = get_node_or_null("/root/Game/UI/Instructions")

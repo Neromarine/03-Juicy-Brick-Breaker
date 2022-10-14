@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/dubmix-12107.mp3-32d9fe60bd39f426d740c26f0d932b9f.mp3str"
+
+[deps]
+
+source_file="res://Assets/dubmix-12107.mp3"
+dest_files=[ "res://.import/dubmix-12107.mp3-32d9fe60bd39f426d740c26f0d932b9f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

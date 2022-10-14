@@ -1,13 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Ball/Ball.gd" type="Script" id=1]
+[ext_resource path="res://Assets/bullet.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Airhorn.ogg" type="AudioStream" id=3]
 
 [sub_resource type="PhysicsMaterial" id=2]
 friction = 0.0
 bounce = 1.0
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 12.0
 
 [node name="Ball" type="RigidBody2D"]
 collision_layer = 0
@@ -17,13 +16,16 @@ gravity_scale = 0.0
 linear_damp = 0.0
 script = ExtResource( 1 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -10.0
-margin_top = -10.0
-margin_right = 10.0
-margin_bottom = 10.0
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2( 0.05, 0.05 )
+polygon = PoolVector2Array( 38, -250.4, 38, -249.1, 53, -239.1, 53, -237.8, 72, -218.8, 72, -216.7, 86, -197.7, 86, -195.5, 101, -166.5, 101, -163.4, 110, -139.4, 110, -135, 118, -103.2, 118, -96, 120.8, -68, 122.8, -68, 132, -58.8, 132, 186.8, 122.8, 196, 117.3, 196, 113, 197.4, 113, 198.3, 111.5, 203.3, 113.4, 208, 115.2, 208, 125, 210.4, 125, 212.2, 132, 219.2, 132, 252, 130.1, 252, 127.4, 256, -127, 256, -132, 250.8, -132, 219.2, -123.9, 210, -120.1, 210, -113.9, 208.5, -111.7, 202.5, -112.7, 198, -124, 195.6, -124, 193.9, -132, 186.9, -132, -60, -130.1, -60, -126.1, -66, -123.5, -66, -121, -67.2, -121, -78.2, -109.7, -141, -108.5, -141, -100.5, -168, -99.3, -168, -85.3, -199, -84.1, -199, -71.1, -220, -69.9, -220, -51.9, -240, -49.7, -240, -36.7, -251, -34.4, -251, -22, -256, 22.1, -256 )
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 
 [connection signal="body_entered" from="." to="." method="_on_Ball_body_entered"]
+[connection signal="finished" from="Audio" to="." method="_on_Audio_finished"]

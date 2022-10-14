@@ -13,10 +13,10 @@ func _ready():
 
 
 func update_score():
-	$Score.text = "Score: " + str(Global.score)
+	$Score.text = "Money Get: " + str(Global.score)
 
 func update_time():
-	$Time.text = "Time: " + str(Global.time)
+	$Time.text = "Police Alert: " + str(Global.time)
 
 func update_lives():
 	var indicator_pos = Vector2(indicator_margin.x, Global.VP.y - indicator_margin.y)

@@ -3,7 +3,7 @@ extends Node
 var levels = [
 	{
 		"name":"Level 1",
-		"instructions":"Break all the Bricks",
+		"instructions":"Shoot all the Golden Bricks",
 		"multiplier":1.0,
 		"timer":120,
 		"layout":[
@@ -19,7 +19,7 @@ var levels = [
 	}
 	,{
 		"name":"Level 2",
-		"instructions":"Keep on brickin'",
+		"instructions":"Keep on Digging'",
 		"multiplier":1.2,
 		"timer":100,
 		"layout":[
@@ -35,7 +35,7 @@ var levels = [
 	}
 	,{
 		"name":"Bonus Round",
-		"instructions":"Break them as quickly as you can!",
+		"instructions":"Shoot them as quickly as you can!",
 		"multiplier":2.0,
 		"timer":30,
 		"layout":[

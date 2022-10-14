@@ -4,8 +4,10 @@ var min_speed = 100.0
 var max_speed = 600.0
 var speed_multiplier = 1.0
 var accelerate = false
-
+var vectorZero = Vector2(1,1).normalized()
 var released = true
+
+var sound_played = false
 
 var initial_velocity = Vector2.ZERO
 
@@ -35,9 +37,15 @@ func _integrate_forces(state):
 		var paddle = get_node_or_null("/root/Game/Paddle_Container/Paddle")
 		if paddle != null:
 			state.transform.origin = Vector2(paddle.position.x + paddle.width, paddle.position.y - 30)	
-
+	
+	
+	
 	if position.y > Global.VP.y + 100:
-		die()
+		var Audio = get_node_or_null("/root/Game/Ball_Container/Ball/Audio")
+		if Audio != null and sound_played == false:
+			Audio.play()
+			sound_played = true
+		
 	if accelerate:
 		state.linear_velocity = state.linear_velocity * 1.1
 		accelerate = false
@@ -47,13 +55,15 @@ func _integrate_forces(state):
 		state.linear_velocity.y = sign(state.linear_velocity.y) * min_speed * speed_multiplier
 	if state.linear_velocity.length() > max_speed * speed_multiplier:
 		state.linear_velocity = state.linear_velocity.normalized() * max_speed * speed_multiplier
-
+	rotation = state.linear_velocity.angle() + PI/2
+	
 func change_size(s):
-	$ColorRect.rect_scale = s
-	$CollisionShape2D.scale = s
+	$Sprite.scale = s*0.05
+	$CollisionPolygon2D.scale = s*0.05
 
 func change_speed(s):
 	speed_multiplier = s
 
-func die():
+
+func _on_Audio_finished():
 	queue_free()

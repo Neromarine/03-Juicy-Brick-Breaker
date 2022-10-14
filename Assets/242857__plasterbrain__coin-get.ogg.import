@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/242857__plasterbrain__coin-get.ogg-ed2e86a2926c0e74a88ad36978279c68.oggstr"
+
+[deps]
+
+source_file="res://Assets/242857__plasterbrain__coin-get.ogg"
+dest_files=[ "res://.import/242857__plasterbrain__coin-get.ogg-ed2e86a2926c0e74a88ad36978279c68.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
